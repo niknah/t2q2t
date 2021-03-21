@@ -17,11 +17,20 @@ usecase overview are below:
 # on client side (TCP <-> QUIC)
 $ ./t2q2t t2q 0.0.0.0:2022 192.168.0.1:2022
 
-# on server side (QUIC <-> TCO)
+# on server side (QUIC <-> TCP)
 $ ./t2q2t q2t 0.0.0.0:2022 127.0.0.1:22
 ```
 
-You can use SSH with QUIC transport by running t2q2t on client and server.
+## ssh
+
+This is the same as the original t2q2t except that it has an s2q option so you can put it into .ssh/config like...
+
+```
+Host ServerWithQuic.com
+	Port 2022
+	ProxyCommand ~/Downloads/t2q2t/t2q2t s2q %h:%p
+```
+
 
 ## build
 
@@ -43,6 +52,7 @@ tcp/quic port forward tool
 
   go run ./t2q2t.go t2q 0.0.0.0:2022 127.0.0.1:2022
   go run ./t2q2t.go q2t 0.0.0.0:2022 127.0.0.1:22
+  go run ./t2q2t.go s2q 0.0.0.0:2022
 
 Usage:
   t2q2t [command]
@@ -51,6 +61,7 @@ Available Commands:
   help        Help about any command
   q2t         Listen by quic, and forward to tcp
   t2q         Listen by tcp, and forward to quic
+  s2q         Stream to quic
   version     Print the version number of t2q2t
 
 Flags:
@@ -65,6 +76,7 @@ Use "t2q2t [command] --help" for more information about a command.
 
 - `t2q`: Listen by TCP, and connect to QUIC
 - `q2t`: Listen by QUIC, and connect to TCP
+- `s2q`: Stream stdin/out to QUIC
 
 
 ## Note

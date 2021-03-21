@@ -20,6 +20,7 @@ var rootCmd = &cobra.Command{
 
   go run ./t2q2t.go t2q 0.0.0.0:2022 127.0.0.1:2022
   go run ./t2q2t.go q2t 0.0.0.0:2022 127.0.0.1:22
+  go run ./t2q2t.go s2q 11.22.33.44:2022
 `,
 }
 
