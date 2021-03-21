@@ -47,7 +47,7 @@ func runq2t(listen, to string) error {
 	if err != nil {
 		return err
 	}
-	toTcpAddr, err := net.ResolveTCPAddr("tcp4", to)
+	toTcpAddr, err := net.ResolveTCPAddr("tcp", to)
 	if err != nil {
 		return err
 	}

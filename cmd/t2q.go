@@ -36,8 +36,8 @@ func init() {
 }
 
 func runt2q(listen, to string) error {
-	listenTcpAddr, err := net.ResolveTCPAddr("tcp4", listen)
-	toTcpAddr, err := net.ResolveTCPAddr("tcp4", to)
+	listenTcpAddr, err := net.ResolveTCPAddr("tcp", listen)
+	toTcpAddr, err := net.ResolveTCPAddr("tcp", to)
 	if err != nil {
 		panic(err)
 	}

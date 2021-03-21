@@ -36,7 +36,7 @@ func init() {
 }
 
 func runs2q(to string) error {
-	toTcpAddr, err := net.ResolveTCPAddr("tcp4", to)
+	toTcpAddr, err := net.ResolveTCPAddr("tcp", to)
 	if err != nil {
 		panic(err)
 	}
